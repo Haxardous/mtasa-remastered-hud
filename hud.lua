@@ -6,34 +6,18 @@
 ]]
 
 -- hiding old hud
-local WeaponShouldBeShownIfAmmo = {}
-WeaponShouldBeShownIfAmmo[16] = true
-WeaponShouldBeShownIfAmmo[17] = true
-WeaponShouldBeShownIfAmmo[18] = true
-WeaponShouldBeShownIfAmmo[19] = true
-WeaponShouldBeShownIfAmmo[22] = true
-WeaponShouldBeShownIfAmmo[23] = true
-WeaponShouldBeShownIfAmmo[24] = true
-WeaponShouldBeShownIfAmmo[25] = true
-WeaponShouldBeShownIfAmmo[26] = true
-WeaponShouldBeShownIfAmmo[27] = true
-WeaponShouldBeShownIfAmmo[28] = true
-WeaponShouldBeShownIfAmmo[29] = true
-WeaponShouldBeShownIfAmmo[30] = true
-WeaponShouldBeShownIfAmmo[31] = true
-WeaponShouldBeShownIfAmmo[32] = true
-WeaponShouldBeShownIfAmmo[33] = true
-WeaponShouldBeShownIfAmmo[34] = true
-WeaponShouldBeShownIfAmmo[35] = true
-WeaponShouldBeShownIfAmmo[36] = true
-WeaponShouldBeShownIfAmmo[37] = true
-WeaponShouldBeShownIfAmmo[38] = true
-WeaponShouldBeShownIfAmmo[39] = true
-WeaponShouldBeShownIfAmmo[41] = true
-WeaponShouldBeShownIfAmmo[42] = true
-WeaponShouldBeShownIfAmmo[43] = true
+local WeaponShouldBeShownIfAmmo = {
+    [16] = true, [17] = true, [18] = true, [19] = true,
+    [22] = true, [23] = true, [24] = true, [25] = true, [26] = true, [27] = true, [28] = true, [29] = true,
+    [30] = true, [31] = true, [32] = true, [33] = true, [34] = true, [35] = true, [36] = true, [37] = true, [38] = true, [39] = true,
+    [41] = true, [42] = true, [43] = true,
+}
+local screenWidth, screenHeight = guiGetScreenSize()
 
-local screenWidth, screenHeight = guiGetScreenSize() 
+local weaponImages = {}
+for i = 0, 45 do
+    weaponImages[i] = "icons/".. i ..".png"
+end
 
 function shudnotvisible() 
 setPlayerHudComponentVisible( "all", false)
@@ -48,11 +32,6 @@ end
 addEventHandler("onClientResourceStart", root, shudnotvisible)
 addEventHandler("onClientPlayerJoin", root, shudnotvisible)
 addEventHandler("onClientResourceStop", root, shudvisible)
-
-local weaponImages = {}
-for i = 0, 45 do
-    weaponImages[i] = "icons/".. i ..".png"
-end
 
 -- showing new hud
 function displayHUD()
@@ -75,6 +54,7 @@ function displayHUD()
         if weaponType then
             dxDrawImage(1555, 100, 126, 126, weaponImages[weaponType], 0, 0, 0, 0xFFFEFEFE, false)
         end
+        
         dxDrawText(g_timehour ..":".. g_timeminute, 1690 - 4, 150 - 4, 1782 - 4, 168 - 4, tocolor(0, 0, 0, 255), 2.00, "pricedown", "center", "center", false, false, false, false, false)
         dxDrawText(g_timehour ..":".. g_timeminute, 1690 + 4, 150 - 4, 1782 + 4, 168 - 4, tocolor(0, 0, 0, 255), 2.00, "pricedown", "center", "center", false, false, false, false, false)
         dxDrawText(g_timehour ..":".. g_timeminute, 1690 - 4, 150 + 4, 1782 - 4, 168 + 4, tocolor(0, 0, 0, 255), 2.00, "pricedown", "center", "center", false, false, false, false, false)
