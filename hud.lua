@@ -19,19 +19,18 @@ for i = 0, 45 do
     weaponImages[i] = "icons/".. i ..".png"
 end
 
-function shudnotvisible() 
-setPlayerHudComponentVisible( "all", false)
-setPlayerHudComponentVisible( "radar", true)
-setPlayerHudComponentVisible( "crosshair", true)
+local function setHUDisabled() 
+    setPlayerHudComponentVisible( "all", false)
+    setPlayerHudComponentVisible( "radar", true)
+    setPlayerHudComponentVisible( "crosshair", true)
 end
-
-function shudvisible() 
-setPlayerHudComponentVisible( "all", true)
+    
+local function setHUDEnabled() 
+    setPlayerHudComponentVisible( "all", true)
 end
-
-addEventHandler("onClientResourceStart", root, shudnotvisible)
-addEventHandler("onClientPlayerJoin", root, shudnotvisible)
-addEventHandler("onClientResourceStop", root, shudvisible)
+addEventHandler("onClientResourceStart", root, setHUDisabled)
+addEventHandler("onClientPlayerJoin", root, setHUDisabled)
+addEventHandler("onClientResourceStop", root, setHUDEnabled)
 
 -- showing new hud
 function displayHUD()
