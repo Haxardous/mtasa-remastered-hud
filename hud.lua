@@ -66,7 +66,7 @@ function displayHUD()
     if armor > 0 then
         dxDrawRectangle(1608+72, 190, 108, 24, tocolor(3, 0, 0, 254), false) -- armor bar
         dxDrawRectangle(1612+72, 194, 100, 16, tocolor(230, 249, 249, 150), false) -- armor shadow
-        dxDrawRectangle(1612+72, 194, g_armor, 16, tocolor(254, 249, 249, 255), false) -- armor
+        dxDrawRectangle(1612+72, 194, armor, 16, tocolor(254, 249, 249, 255), false) -- armor
 
     end
 
@@ -79,17 +79,17 @@ function displayHUD()
     end
 
     if money < 0 then
-        dxDrawText("$".. g_pmoney, 1552 - 4, 262 - 4, 1788 - 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. g_pmoney, 1552 + 4, 262 - 4, 1788 + 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. g_pmoney, 1552 - 4, 262 + 4, 1788 - 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. g_pmoney, 1552 + 4, 262 + 4, 1788 + 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. g_pmoney, 1552, 262, 1788, 302, 0xFFFF0000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552 - 4, 262 - 4, 1788 - 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552 + 4, 262 - 4, 1788 + 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552 - 4, 262 + 4, 1788 - 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552 + 4, 262 + 4, 1788 + 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552, 262, 1788, 302, 0xFFFF0000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
     else
-        dxDrawText("$".. g_pmoney, 1552 - 4, 262 - 4, 1788 - 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. g_pmoney, 1552 + 4, 262 - 4, 1788 + 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. g_pmoney, 1552 - 4, 262 + 4, 1788 - 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. g_pmoney, 1552 + 4, 262 + 4, 1788 + 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. g_pmoney, 1552, 262, 1788, 302, 0xFF246100, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552 - 4, 262 - 4, 1788 - 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552 + 4, 262 - 4, 1788 + 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552 - 4, 262 + 4, 1788 - 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552 + 4, 262 + 4, 1788 + 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. money, 1552, 262, 1788, 302, 0xFF246100, 2.00, "pricedown", "center", "center", false, false, false, false, false)
     end
 
 end
