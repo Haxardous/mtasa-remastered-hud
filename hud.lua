@@ -61,13 +61,12 @@ function displayHUD()
         local g_timehour, g_timeminute = getTime()
         local g_playerHealth = getElementHealth(localPlayer)
         local g_armor = getPedArmor(localPlayer)
-        local targetPlayer = getLocalPlayer()
         local g_playerhealthcorrect = string.format("%6.0f", g_playerHealth)
         local g_playerarmorcorrect = string.format("%6.0f", g_armor)
         local g_playerhealthwidth = (g_playerhealthcorrect / 100) * 200
         local g_playerarmorwidth =  (g_playerarmorcorrect / 100) * 211
- --       local ammo = getPedAmmoInClip(targetPlayer)
-        local allammo = getPedTotalAmmo(targetPlayer)
+ --       local ammo = getPedAmmoInClip(localPlayer)
+        local allammo = getPedTotalAmmo(localPlayer)
         local g_ammo = (allammo)
         g_playerHealth = string.format("%6.0f", g_playerHealth)
         g_timeminute = string.format("%02d", g_timeminute)
@@ -91,7 +90,8 @@ function displayHUD()
         dxDrawRectangle(1612+72, 194, 100, 16, tocolor(230, 249, 249, 150), false) -- armor shadow
         dxDrawRectangle(1612+72, 194, g_armor, 16, tocolor(254, 249, 249, 255), false) -- armor
 
-        if WeaponShouldBeShownIfAmmo [getPedWeapon(getLocalPlayer())] then
+        if WeaponShouldBeShownIfAmmo[getPedWeapon(localPlayer)] then
+
         dxDrawText(g_ammo, 1572 - 1, 202 - 1, 1657 - 1, 220 - 1, tocolor(0, 0, 0, 255), 1.40, "default-bold", "center", "center", false, false, false, false, false)
         dxDrawText(g_ammo, 1572 + 1, 202 - 1, 1657 + 1, 220 - 1, tocolor(0, 0, 0, 255), 1.40, "default-bold", "center", "center", false, false, false, false, false)
         dxDrawText(g_ammo, 1572 - 1, 202 + 1, 1657 - 1, 220 + 1, tocolor(0, 0, 0, 255), 1.40, "default-bold", "center", "center", false, false, false, false, false)
