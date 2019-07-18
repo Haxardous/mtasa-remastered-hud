@@ -79,11 +79,11 @@ function displayHUD()
     end
 
     if money < 0 then
-        dxDrawText("$".. money, 1552 - 4, 262 - 4, 1788 - 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. money, 1552 + 4, 262 - 4, 1788 + 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. money, 1552 - 4, 262 + 4, 1788 - 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. money, 1552 + 4, 262 + 4, 1788 + 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. money, 1552, 262, 1788, 302, 0xFFFF0000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. math.abs(money), 1552 - 4, 262 - 4, 1788 - 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. math.abs(money), 1552 + 4, 262 - 4, 1788 + 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. math.abs(money), 1552 - 4, 262 + 4, 1788 - 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. math.abs(money), 1552 + 4, 262 + 4, 1788 + 4, 302 + 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. math.abs(money), 1552, 262, 1788, 302, 0xFFFF0000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
     else
         dxDrawText("$".. money, 1552 - 4, 262 - 4, 1788 - 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
         dxDrawText("$".. money, 1552 + 4, 262 - 4, 1788 + 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
