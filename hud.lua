@@ -3,11 +3,9 @@
 *7/18/2019
 *Version: r1.0.0
 *Discord: Axa#7286/260124112452583446
-*
 ]]
 
 -- hiding old hud
-g_r = getRootElement()
 local WeaponShouldBeShownIfAmmo = {}
 WeaponShouldBeShownIfAmmo[16] = true
 WeaponShouldBeShownIfAmmo[17] = true
@@ -47,9 +45,14 @@ function shudvisible()
 setPlayerHudComponentVisible( "all", true)
 end
 
-addEventHandler("onClientResourceStart", g_r, shudnotvisible)
-addEventHandler("onClientPlayerJoin", g_r, shudnotvisible)
-addEventHandler("onClientResourceStop", g_r, shudvisible)
+addEventHandler("onClientResourceStart", root, shudnotvisible)
+addEventHandler("onClientPlayerJoin", root, shudnotvisible)
+addEventHandler("onClientResourceStop", root, shudvisible)
+
+local weaponImages = {}
+for i = 0, 45 do
+    weaponImages[i] = "icons/".. i ..".png"
+end
 
 -- showing new hud
 function displayHUD()
@@ -70,176 +73,8 @@ function displayHUD()
         g_timeminute = string.format("%02d", g_timeminute)
         g_pmoney = string.format("%08d", g_pmoney)
 
-        if (weaponType == 0) then
-            dxDrawImage(1555, 100, 126, 126, "icons/0.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 1) then
-            dxDrawImage(1555, 100, 126, 126, "icons/1.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 2) then
-            dxDrawImage(1555, 100, 126, 126, "icons/2.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 3) then
-            dxDrawImage(1555, 100, 126, 126, "icons/3.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 4) then
-            dxDrawImage(1555, 100, 126, 126, "icons/4.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 5) then
-            dxDrawImage(1555, 100, 126, 126, "icons/5.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 6) then
-            dxDrawImage(1555, 100, 126, 126, "icons/6.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 7) then
-            dxDrawImage(1555, 100, 126, 126, "icons/7.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 8) then
-            dxDrawImage(1555, 100, 126, 126, "icons/8.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 9) then
-            dxDrawImage(1555, 100, 126, 126, "icons/9.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 10) then
-            dxDrawImage(1555, 100, 126, 126, "icons/10.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 11) then
-            dxDrawImage(1555, 100, 126, 126, "icons/11.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 12) then
-            dxDrawImage(1555, 100, 126, 126, "icons/12.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-        
-        if (weaponType == 13) then
-            dxDrawImage(1555, 100, 126, 126, "icons/13.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 14) then
-            dxDrawImage(1555, 100, 126, 126, "icons/14.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 15) then
-            dxDrawImage(1555, 100, 126, 126, "icons/15.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 16) then
-            dxDrawImage(1555, 100, 126, 126, "icons/16.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 17) then
-            dxDrawImage(1555, 100, 126, 126, "icons/17.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 18) then
-            dxDrawImage(1555, 100, 126, 126, "icons/18.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 22) then
-            dxDrawImage(1555, 100, 126, 126, "icons/22.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 23) then
-            dxDrawImage(1555, 100, 126, 126, "icons/23.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 24) then
-            dxDrawImage(1555, 100, 126, 126, "icons/24.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 25) then
-            dxDrawImage(1555, 100, 126, 126, "icons/25.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 26) then
-            dxDrawImage(1555, 100, 126, 126, "icons/26.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 27) then
-            dxDrawImage(1555, 100, 126, 126, "icons/27.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 28) then
-            dxDrawImage(1555, 100, 126, 126, "icons/28.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 29) then
-            dxDrawImage(1555, 100, 126, 126, "icons/29.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 30) then
-            dxDrawImage(1555, 100, 126, 126, "icons/30.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 31) then
-            dxDrawImage(1555, 100, 126, 126, "icons/31.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 32) then
-            dxDrawImage(1555, 100, 126, 126, "icons/32.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 33) then
-            dxDrawImage(1555, 100, 126, 126, "icons/33.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 34) then
-            dxDrawImage(1555, 100, 126, 126, "icons/34.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 35) then
-            dxDrawImage(1555, 100, 126, 126, "icons/35.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 36) then
-            dxDrawImage(1555, 100, 126, 126, "icons/36.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 37) then
-            dxDrawImage(1555, 100, 126, 126, "icons/37.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 38) then
-            dxDrawImage(1555, 100, 126, 126, "icons/38.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 39) then
-            dxDrawImage(1555, 100, 126, 126, "icons/39.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 40) then
-            dxDrawImage(1555, 100, 126, 126, "icons/40.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 41) then
-            dxDrawImage(1555, 100, 126, 126, "icons/41.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 42) then
-            dxDrawImage(1555, 100, 126, 126, "icons/42.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 43) then
-            dxDrawImage(1555, 100, 126, 126, "icons/43.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 44) then
-            dxDrawImage(1555, 100, 126, 126, "icons/44.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
-        end
-
-        if (weaponType == 45) then
-            dxDrawImage(1555, 100, 126, 126, "icons/45.png", 0, 0, 0, tocolor(255, 254, 254, 254), false)
+        if weaponType then
+            dxDrawImage(1555, 100, 126, 126, weaponImages[weaponType], 0, 0, 0, 0xFFFEFEFE, false)
         end
         dxDrawText(g_timehour ..":".. g_timeminute, 1690 - 4, 150 - 4, 1782 - 4, 168 - 4, tocolor(0, 0, 0, 255), 2.00, "pricedown", "center", "center", false, false, false, false, false)
         dxDrawText(g_timehour ..":".. g_timeminute, 1690 + 4, 150 - 4, 1782 + 4, 168 - 4, tocolor(0, 0, 0, 255), 2.00, "pricedown", "center", "center", false, false, false, false, false)
