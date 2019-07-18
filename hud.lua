@@ -44,7 +44,7 @@ function displayHUD()
     -- data formatting
     local healthFormatted = string.format("%6.0f", health)
     local healthWidth = (tonumber(healthFormatted) / 100) * 200
-    local armorFormatted = string.format("%6.0f", g_armor)
+    local armorFormatted = string.format("%6.0f", armor)
     local armorWidth = (tonumber(armorFormatted) / 100) * 211
     local moneyFormatted = string.format("%08d", money)
     minute = string.format("%02d", minute)
