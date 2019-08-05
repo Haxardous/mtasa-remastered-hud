@@ -19,7 +19,7 @@ local WeaponShouldBeShownIfAmmo = {
 local screenWidth, screenHeight = guiGetScreenSize()
 
 local scale = 1
-function getscale
+function getScale()
     if ( screenWidth <= 640 ) and ( screenHeight <= 480 ) then
         outputChatBox ( "WARNING: You are running on a low resolution.  Some GUI may be placed or appear incorrectly." )
     elseif ( screenWidth <= 1024 ) and ( screenHeight <= 768 ) then
