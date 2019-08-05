@@ -18,23 +18,25 @@ local WeaponShouldBeShownIfAmmo = {
 
 local screenWidth, screenHeight = guiGetScreenSize()
 
-scale = function()
-	if ( screenWidth <= 640 ) and ( screenHeight <= 480 ) then
+local scale = 1
+function getscale
+    if ( screenWidth <= 640 ) and ( screenHeight <= 480 ) then
         outputChatBox ( "WARNING: You are running on a low resolution.  Some GUI may be placed or appear incorrectly." )
     elseif ( screenWidth <= 1024 ) and ( screenHeight <= 768 ) then
-        return 1.3
+        scale = 1.3
     elseif ( screenWidth <= 1280 ) and ( screenHeight <= 720 ) then
-        return 1.3
+        scale = 1.3
     elseif ( screenWidth <= 1366 ) and ( screenHeight <= 768 ) then
-        return 1.4
+        scale = 1.4
     elseif ( screenWidth <= 1360 ) and ( screenHeight <= 768 ) then
-        return 1.4
+        scale = 1.4
     elseif ( screenWidth <= 1600 ) and ( screenHeight <= 900 ) then
-        return 1.6
+        scale = 1.6
     elseif ( screenWidth <= 1920 ) and ( screenHeight <= 1080 ) then
-        return 2
-	end
+        scale = 2
+    end
 end
+addEventHandler('onClientResourceStart', resourceRoot, getScale)
 
 function getPedMaxHealth(ped)
     -- Output an error and stop executing the function if the argument is not valid
@@ -93,11 +95,11 @@ function displayHUD()
         dxDrawImage(sWidth*1555/1920, sHeight*100/1080, sWidth*126/1920, sHeight*126/1080, weaponImages[weaponType], 0, 0, 0, 0xFFFEFEFE, false)
     end
 
-    dxDrawText(hour ..":".. minute, sWidth*1686/1920, sHeight*146/1080, sWidth*1778/1920, sHeight*164/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-    dxDrawText(hour ..":".. minute, sWidth*1694/1920, sHeight*146/1080, sWidth*1786/1920, sHeight*164/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-    dxDrawText(hour ..":".. minute, sWidth*1686/1920, sHeight*154/1080, sWidth*1778/1920, sHeight*172/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-    dxDrawText(hour ..":".. minute, sWidth*1694/1920, sHeight*154/1080, sWidth*1786/1920, sHeight*172/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-    dxDrawText(hour ..":".. minute, sWidth*1690/1920, sHeight*150/1080, sWidth*1782/1920, sHeight*168/1080, 0xFFFFFFFF, scale(), "pricedown", "center", "center", false, false, false, false, false)
+    dxDrawText(hour ..":".. minute, sWidth*1686/1920, sHeight*146/1080, sWidth*1778/1920, sHeight*164/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+    dxDrawText(hour ..":".. minute, sWidth*1694/1920, sHeight*146/1080, sWidth*1786/1920, sHeight*164/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+    dxDrawText(hour ..":".. minute, sWidth*1686/1920, sHeight*154/1080, sWidth*1778/1920, sHeight*172/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+    dxDrawText(hour ..":".. minute, sWidth*1694/1920, sHeight*154/1080, sWidth*1786/1920, sHeight*172/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+    dxDrawText(hour ..":".. minute, sWidth*1690/1920, sHeight*150/1080, sWidth*1782/1920, sHeight*168/1080, 0xFFFFFFFF, scale, "pricedown", "center", "center", false, false, false, false, false)
 
     dxDrawRectangle(sWidth*1580/1920, sHeight*224/1080, sWidth*208/1920, sHeight*24/1080, tocolor(3, 0, 0, 254), false) -- health bar
     dxDrawRectangle(sWidth*1584/1920, sHeight*228/1080, sWidth*healthWidth/1920, sHeight*16/1080, tocolor(223, 0, 0, 254), false) -- health
@@ -118,26 +120,26 @@ function displayHUD()
     end
 
     if money < 0 then
-        dxDrawText("- $".. moneyFormatted, sWidth*1548/1920, sHeight*258/1080, sWidth*1784/1920, sHeight*298/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("- $".. moneyFormatted, sWidth*1556/1920, sHeight*258/1080, sWidth*1792/1920, sHeight*298/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("- $".. moneyFormatted, sWidth*1548/1920, sHeight*266/1080, sWidth*1784/1920, sHeight*306/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("- $".. moneyFormatted, sWidth*1556/1920, sHeight*266/1080, sWidth*1792/1920, sHeight*306/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("- $".. moneyFormatted, sWidth*1552/1920, sHeight*262/1080, sWidth*1788/1920, sHeight*302/1080, 0xFFFF0000, scale(), "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. moneyFormatted, sWidth*1548/1920, sHeight*258/1080, sWidth*1784/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. moneyFormatted, sWidth*1556/1920, sHeight*258/1080, sWidth*1792/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. moneyFormatted, sWidth*1548/1920, sHeight*266/1080, sWidth*1784/1920, sHeight*306/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. moneyFormatted, sWidth*1556/1920, sHeight*266/1080, sWidth*1792/1920, sHeight*306/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("- $".. moneyFormatted, sWidth*1552/1920, sHeight*262/1080, sWidth*1788/1920, sHeight*302/1080, 0xFFFF0000, scale, "pricedown", "center", "center", false, false, false, false, false)
     else
-        dxDrawText("$".. moneyFormatted, sWidth*1548/1920, sHeight*258/1080, sWidth*1784/1920, sHeight*298/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. moneyFormatted, sWidth*1556/1920, sHeight*258/1080, sWidth*1792/1920, sHeight*298/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. moneyFormatted, sWidth*1548/1920, sHeight*266/1080, sWidth*1784/1920, sHeight*306/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. moneyFormatted, sWidth*1556/1920, sHeight*266/1080, sWidth*1792/1920, sHeight*306/1080, 0xFF000000, scale(), "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("$".. moneyFormatted, sWidth*1552/1920, sHeight*262/1080, sWidth*1788/1920, sHeight*302/1080, 0xFF246100, scale(), "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1548/1920, sHeight*258/1080, sWidth*1784/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1556/1920, sHeight*258/1080, sWidth*1792/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1548/1920, sHeight*266/1080, sWidth*1784/1920, sHeight*306/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1556/1920, sHeight*266/1080, sWidth*1792/1920, sHeight*306/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1552/1920, sHeight*262/1080, sWidth*1788/1920, sHeight*302/1080, 0xFF246100, scale, "pricedown", "center", "center", false, false, false, false, false)
     end
 end
 addEventHandler("onClientRender", root, displayHUD)
 
 isHUDShown = false;
-addCommandHandler("displayhud", function()	
-    if not (isHUDShown) then	
-        isHUDShown = true;	
-        removeEventHandler("onClientRender", root, displayHUD)	
+addCommandHandler("displayhud", function()  
+    if not (isHUDShown) then    
+        isHUDShown = true;  
+        removeEventHandler("onClientRender", root, displayHUD)  
     else
         isHUDShown = false;
         addEventHandler("onClientRender", root, displayHUD)
