@@ -27,20 +27,48 @@ addEventHandler("onClientResourceStart", root, disableHud)
 addEventHandler("onClientPlayerJoin", root, disableHud)
 addEventHandler("onClientResourceStop", root, enableHud)
 
+ping = 0
+fpsAverage = 0
+fpsTotal = 0
+fpsTotal2 = 0
+timerCount = 0
+function tallyFPS()
+	fpsTotal = fpsTotal + 1
+	fpsTotal2 = fpsTotal2 + 1
+end
+addEventHandler("onClientRender", root, tallyFPS)
 
+function PingAndFPS()
+	fpsAverage = math.ceil(fpsTotal)
+	fpsTotal = 0
+	ping = getPlayerPing(localPlayer)
 
+	if (timerCount < 60) then
+		return
+	end
+	timerCount = 0
+	
+	fpsAverage = math.ceil(fpsTotal2)
+	fpsTotal2 = 0
+	
+	timerCount = timerCount + 1
+	
+	fpsAverage = fpsAverage or 0	
+end
+setTimer(PingAndFPS, 1000, 0)
 
 -- showing new hud
 function displayHUD()
     -- data collection
     local weaponType = getPedWeapon(localPlayer)
     local money = getPlayerMoney()
-    local hour, minute = getTime()
+	local time = getRealTime()
+    local hour = time.hour
+	local minute = time.minute
     local health = getElementHealth(localPlayer)
     local armor = getPedArmor(localPlayer)
     local ammo = getPedTotalAmmo(localPlayer)
     local ammoClip = getPedAmmoInClip(localPlayer)
-    
     -- data formatting
     local healthFormatted = string.format("%6.0f", health)
     local healthWidth = (tonumber(healthFormatted) / 100) * 200
@@ -78,6 +106,12 @@ function displayHUD()
         dxDrawText(ammoClip .."/".. ammo, 1572, 202, 1657, 220, 0xFFBBD6FF, 1.40, "default-bold", "center", "center", false, false, false, false, false)
     end
 
+        dxDrawText("Ping: "..ping .." FPS: ".. fpsAverage, 1830 - 1, 30 - 1, 1657 - 1, 220 - 1, 0xFF000000, 1.20, "default-bold", "center", "center", false, false, false, false, false)
+        dxDrawText("Ping: "..ping .." FPS: ".. fpsAverage, 1830 + 1, 30 - 1, 1657 + 1, 220 - 1, 0xFF000000, 1.20, "default-bold", "center", "center", false, false, false, false, false)
+        dxDrawText("Ping: "..ping .." FPS: ".. fpsAverage, 1830 - 1, 30 + 1, 1657 - 1, 220 + 1, 0xFF000000, 1.20, "default-bold", "center", "center", false, false, false, false, false)
+        dxDrawText("Ping: "..ping .." FPS: ".. fpsAverage, 1830 + 1, 30 + 1, 1657 + 1, 220 + 1, 0xFF000000, 1.20, "default-bold", "center", "center", false, false, false, false, false)
+        dxDrawText("Ping: "..ping .." FPS: ".. fpsAverage, 1830, 30, 1657, 220, 0xFFBBD6FF, 1.20, "default-bold", "center", "center", false, false, false, false, false)
+	
     if money < 0 then
         dxDrawText("- $".. math.abs(money), 1552 - 4, 262 - 4, 1788 - 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
         dxDrawText("- $".. math.abs(money), 1552 + 4, 262 - 4, 1788 + 4, 302 - 4, 0xFF000000, 2.00, "pricedown", "center", "center", false, false, false, false, false)
