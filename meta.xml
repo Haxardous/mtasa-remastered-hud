@@ -1,5 +1,5 @@
 <meta>
-<info name="Remastered HUD by Haxardous/Axa" author="Haxardous/Axa" type="script" version="1.0.0"/>
+<info name="Remastered HUD by Haxardous-Axa" author="Haxardous-Axa" type="script" version="2.0.0"/>
 
 <script src="hud.lua" type="client"/>
 
