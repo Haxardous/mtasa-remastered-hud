@@ -8,6 +8,7 @@ Dutchman101's for PNG optimizer tool (icons) / https://forum.mtasa.com/topic/119
 Commands List:
 displayhud - toggles between showing and hiding the HUD.
 ]]--
+
 local WeaponShouldBeShownIfAmmo = {
     [16] = true, [17] = true, [18] = true, [19] = true,
     [22] = true, [23] = true, [24] = true, [25] = true, [26] = true, [27] = true, [28] = true, [29] = true,
