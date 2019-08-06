@@ -119,11 +119,11 @@ function displayHUD()
     end
 
     if money < 0 then
-        dxDrawText("- $".. moneyFormatted, sWidth*1548/1920, sHeight*258/1080, sWidth*1784/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("- $".. moneyFormatted, sWidth*1556/1920, sHeight*258/1080, sWidth*1792/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("- $".. moneyFormatted, sWidth*1548/1920, sHeight*266/1080, sWidth*1784/1920, sHeight*306/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("- $".. moneyFormatted, sWidth*1556/1920, sHeight*266/1080, sWidth*1792/1920, sHeight*306/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
-        dxDrawText("- $".. moneyFormatted, sWidth*1552/1920, sHeight*262/1080, sWidth*1788/1920, sHeight*302/1080, 0xFFFF0000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1548/1920, sHeight*258/1080, sWidth*1784/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1556/1920, sHeight*258/1080, sWidth*1792/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1548/1920, sHeight*266/1080, sWidth*1784/1920, sHeight*306/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1556/1920, sHeight*266/1080, sWidth*1792/1920, sHeight*306/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
+        dxDrawText("$".. moneyFormatted, sWidth*1552/1920, sHeight*262/1080, sWidth*1788/1920, sHeight*302/1080, 0xFFFF0000, scale, "pricedown", "center", "center", false, false, false, false, false)
     else
         dxDrawText("$".. moneyFormatted, sWidth*1548/1920, sHeight*258/1080, sWidth*1784/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
         dxDrawText("$".. moneyFormatted, sWidth*1556/1920, sHeight*258/1080, sWidth*1792/1920, sHeight*298/1080, 0xFF000000, scale, "pricedown", "center", "center", false, false, false, false, false)
