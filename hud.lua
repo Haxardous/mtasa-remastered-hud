@@ -36,6 +36,7 @@ function getScale()
         scale = 2
     end
 end
+
 addEventHandler('onClientResourceStart', resourceRoot, getScale)
 
 function getPedMaxHealth(ped)
@@ -49,12 +50,10 @@ function getPedMaxHealth(ped)
     return math.max(1, maxhealth)
 end
 
-
 local weaponImages = {}
 for i = 0, 45 do
     weaponImages[i] = "icons/".. i ..".png"
 end
-
 
 local function disableHud() 
     setPlayerHudComponentVisible( "all", false)
