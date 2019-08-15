@@ -62,15 +62,6 @@ addEventHandler("onClientResourceStart", resourceRoot, disableHud)
 addEventHandler("onClientPlayerJoin", resourceRoot, disableHud)
 addEventHandler("onClientResourceStop", resourceRoot, enableHud)
 
-local function isHealthSame()
-    local currentHealthValue = nil; 
-    if (getElementHealth(localPlayer) == currentHealthValue) then 
-        return false
-    else
-        return true
-    end
-end
-
 local sWidth,sHeight = guiGetScreenSize()
 
 -- showing new hud
@@ -78,6 +69,7 @@ function displayHUD()
     -- data collection
     local isPlayerHavingWeapon = getPedWeapon(localPlayer)
     local hour, minute = getTime()
+    local hour = string.format("%02d", hour)
     local minute = string.format("%02d", minute)
     local ammo = getPedTotalAmmo(getLocalPlayer())-getPedAmmoInClip(getLocalPlayer())
     local ammoClip = getPedAmmoInClip(localPlayer)
