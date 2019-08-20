@@ -75,9 +75,9 @@ function dxDrawBorderedText(outline, text, left, top, right, bottom, color, scal
     dxDrawText (text, left, top, right, bottom, color, scale, font, alignX, alignY, clip, wordBreak, postGUI, colorCoded, subPixelPositioning, fRotation, fRotationCenterX, fRotationCenterY)
 end
 
-local weaponImageDisplay = {posX = sWidth*1555/1920, posY = sHeight*100/1080, width = sWidth*126/1920, height = sHeight*126/1080, color = 0xFFFEFEFE}
-local ammoDisplay = {posX = sWidth*1572/1920, posY = sHeight*202/1080, width = sWidth*1657/1920, height = sHeight*220/1080, color = 0xFFBBD6FF, scale = 1.40}
-local clockDisplay = {posX = sWidth*1690/1920, posY = sHeight*150/1080, width = sWidth*1782/1920, height = sHeight*168/1080 color = 0xFFFFFFFF}
+local weaponImageDisplay = {posX = sWidth*1542/1920, posY = sHeight*100/1080, width = sWidth*126/1920, height = sHeight*126/1080, color = 0xFFFEFEFE}
+local ammoDisplay = {posX = sWidth*1542/1920, posY = sHeight*202/1080, width = sWidth*1657/1920, height = sHeight*220/1080, color = 0xFFBBD6FF, scale = 1.40}
+local clockDisplay = {posX = sWidth*1679/1920, posY = sHeight*150/1080, width = sWidth*1782/1920, height = sHeight*168/1080, color = 0xFFFFFFFF}
 local moneyDisplay = {posX = sWidth*1552/1920, posY = sHeight*262/1080, width = sWidth*1788/1920, height = sHeight*302/1080, green = 0xFF246100, red = 0xFFFF0000} 
 
 -- showing new hud
@@ -97,21 +97,21 @@ function displayHUD()
     
     -- Weapon Image
     if isPlayerHavingWeapon then
-        dxDrawImage(weaponImagePosition["posX"], weaponImagePosition["posY"], weaponImagePosition["width"], weaponImagePosition["height"], weaponImages[isPlayerHavingWeapon], 0, 0, 0, weaponImagePosition["color"], false)
+        dxDrawImage(weaponImageDisplay["posX"], weaponImageDisplay["posY"], weaponImageDisplay["width"], weaponImageDisplay["height"], weaponImages[isPlayerHavingWeapon], 0, 0, 0, weaponImageDisplay["color"], false)
     end
     
     -- Weapon Ammo (multiple shots)
     if WeaponHaveMoreThanSingle[isPlayerHavingWeapon] then
-        dxDrawBorderedText(0.9, ammoClip .."/".. ammo, ammoClipPosition["posX"], ammoClipPosition["posY"], ammoClipPosition["width"], ammoClipPosition["height"], ammoClipPosition["color"], ammoClipPosition["scale"], "default-bold", "center", "center", false, false, false, false, false)
+        dxDrawBorderedText(0.9, ammoClip .."/".. ammo, ammoDisplay["posX"], ammoDisplay["posY"], ammoDisplay["width"], ammoDisplay["height"], ammoDisplay["color"], ammoDisplay["scale"], "default-bold", "center", "center", false, false, false, false, false)
     end
 
     -- Weapon Ammo (single shots)
     if WeaponHaveSingleAmmo[isPlayerHavingWeapon] then
-        dxDrawBorderedText(0.9, ammo, sWidth*1572/1920, ammoClipPosition["posX"], ammoClipPosition["posY"], ammoClipPosition["width"], ammoClipPosition["height"], ammoClipPosition["color"], ammoClipPosition["scale"], "default-bold", "center", "center", false, false, false, false, false)
+        dxDrawBorderedText(0.9, "".. ammo, ammoDisplay["posX"], ammoDisplay["posY"], ammoDisplay["width"], ammoDisplay["height"], ammoDisplay["color"], ammoDisplay["scale"], "default-bold", "center", "center", false, false, false, false, false)
     end
 
     -- clock display
-    dxDrawBorderedText(2, hour ..":".. minute, clockPositon["posX"], clockPositon["posY"], clockPositon["width"], clockPositon["height"], clockPosition["color"], scale, "pricedown", "left", "center", false, false, false, false, false)
+    dxDrawBorderedText(2, hour ..":".. minute, clockDisplay["posX"], clockDisplay["posY"], clockDisplay["width"], clockDisplay["height"], clockDisplay["color"], scale, "pricedown", "left", "center", false, false, false, false, false)
 
     -- health bar display
     dxDrawRectangle(sWidth*1580/1920, sHeight*228/1080, sWidth*208/1920, sHeight*21/1080, tocolor(3, 0, 0, 254), false) -- health bar
@@ -120,9 +120,9 @@ function displayHUD()
 
     -- armor bar display
     if getPedArmor(localPlayer) > 0 then
-        dxDrawRectangle(sWidth*1680/1920, sHeight*190/1080, sWidth*108/1920, sHeight*24/1080, tocolor(3, 0, 0, 254), false) -- armor bar
-        dxDrawRectangle(sWidth*1684/1920, sHeight*194/1080, sWidth*100/1920, sHeight*16/1080, tocolor(230, 249, 249, 150), false) -- armor shadow
-        dxDrawRectangle(sWidth*1684/1920, sHeight*194/1080, sWidth*armorWidth/1920, sHeight*16/1080, tocolor(254, 249, 249, 255), false) -- armor
+        dxDrawRectangle(sWidth*1680/1920, sHeight*190/1080, sWidth*108/1920, sHeight*21/1080, tocolor(3, 0, 0, 254), false) -- armor bar
+        dxDrawRectangle(sWidth*1684/1920, sHeight*194/1080, sWidth*100/1920, sHeight*13/1080, tocolor(230, 249, 249, 150), false) -- armor shadow
+        dxDrawRectangle(sWidth*1684/1920, sHeight*194/1080, sWidth*armorWidth/1920, sHeight*13/1080, tocolor(254, 249, 249, 255), false) -- armor
     end
 
     -- money display
@@ -144,5 +144,4 @@ addCommandHandler("displayhud", function()
         isHUDShown = false;
         addEventHandler("onClientRender", root, displayHUD)
     end
-end
-)
+end)
